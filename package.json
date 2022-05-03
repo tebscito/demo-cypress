@@ -1,0 +1,22 @@
+{
+  "name": "demo-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tebscito/demo-cypress.git"
+  },
+  "author": "esteban.candia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tebscito/demo-cypress/issues"
+  },
+  "homepage": "https://github.com/tebscito/demo-cypress#readme",
+  "devDependencies": {
+    "cypress": "^9.6.0"
+  }
+}
