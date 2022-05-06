@@ -1,11 +1,11 @@
-{
-  "name": "demo-cypress",
+{  "name": "demo-cypress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "api": "npx cypress run sample-api.spec.js",
-    "e2e": "npx cypress run sample-.spec.js"
+    "e2e": "npx cypress run sample-.spec.js",
+    "ui": "npx cypress open"
   },
   "repository": {
     "type": "git",
