@@ -6,7 +6,7 @@ describe('Example E2E Test', () => {
         cy.visit('/')
     })
   
-    it('Example E2E Test 1', () => {
+    it('Example E2E Test 1 - Create new Character Card', () => {
         cy
             .get(selectors.ADD_ITEM_BUTTON).click()
             .fillFormCharacter(card.image, card.name, card.real_name, card.current_location)
@@ -18,7 +18,8 @@ describe('Example E2E Test', () => {
             })
     })
 
-    it('Example E2E Test 2', () => {
+    it('Example E2E Test 2 - Search an Existing Character', () => {
+        cy.wait(3000)
         cy.intercept('GET', '**/character?search*').as('getChar')
         cy
             .get(selectors.CHARACTER_SEARCH_INPUT_TEXT).type(card.name)
@@ -32,6 +33,21 @@ describe('Example E2E Test', () => {
             })
             .get(selectors.CARD_ROW_LABEL).should(($el) => {
                 expect($el).to.be.visible
+            })
+    })
+
+    it('Example E2E Test 3 - Search and Delet a Character', () => {
+        cy.wait(3000)
+        cy.intercept('GET', '**/character?search*').as('getChar')
+        cy
+            .get(selectors.CHARACTER_SEARCH_INPUT_TEXT).clear().type(card.name)
+            .get(selectors.CHARACTER_SUBMIT_BUTTON).click()
+        cy  
+            .wait('@getChar')
+            .get(selectors.CARD).should('be.visible')
+            .get(selectors.DELETE_CARD).click()
+            .get(selectors.CARD_NOT_FOUND).should(($el) => {
+                expect($el).to.have.text('Nothing to see here. Result is empty.')
             })
     })
 })
