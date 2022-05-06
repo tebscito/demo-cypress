@@ -1,1 +1,7 @@
-{}
+{
+    "baseUrl": "https://dsternlicht.github.io/RESTool/#/characters",
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout": 10000,
+    "requestTimeout": 10000
+}
+  
