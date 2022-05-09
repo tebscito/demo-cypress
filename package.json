@@ -1,1 +1,22 @@
-{"name":"demo-cypress","version":"1.0.0","description":"","main":"index.js","scripts":{"api":"npx cypress run sample-api.spec.js","e2e":"npx cypress run sample-.spec.js","ui":"npx cypress open"},"repository":{"type":"git","url":"git+https://github.com/tebscito/demo-cypress.git"},"author":"esteban.candia","dependencies":{"cypress":"^9.6.0"},"devDependencies":{"cypress-file-upload":"^5.0.8"}}
+{
+  "name": "demo-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api": "npx cypress run sample-api.spec.js",
+    "e2e": "npx cypress run sample-.spec.js",
+    "ui": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tebscito/demo-cypress.git"
+  },
+  "author": "esteban.candia",
+  "dependencies": {
+    "cypress": "^9.6.0"
+  },
+  "devDependencies": {
+    "cypress-file-upload": "^5.0.8"
+  }
+}
