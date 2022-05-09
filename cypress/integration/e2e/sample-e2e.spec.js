@@ -1,3 +1,6 @@
+/// <reference types="cypress" />
+/// <reference path="../../support/index.d.ts" />
+
 import card from '../../fixtures/card.json'
 import selectors from '../../support/selectors'
 

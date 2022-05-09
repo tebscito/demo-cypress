@@ -9,20 +9,20 @@
 import 'cypress-file-upload';
 
 Cypress.Commands.add('requestApi', (method, url, body) => {
-  if (body === undefined) {
-    cy.request({
-      method: method,
-      url: url
-    }).then(response => {
-      return response;
-    });
-  } else {
-    cy.request({
-      method: method,
-      url: url,
-      body: body
-    }).then(response => {
-      return response;
-    });
-  }
+    if (body === undefined) {
+        cy.request({
+            method: method,
+            url: url
+        }).then(response => {
+            return response;
+        });
+    } else {
+        cy.request({
+            method: method,
+            url: url,
+            body: body
+        }).then(response => {
+            return response;
+        });
+    }
 });
