@@ -2,11 +2,15 @@ import selectors from '../../support/selectors'
 import card from '../../fixtures/card.json'
 
 class characters {
+
+    wait(millisec)
+    {   cy.wait(millisec) }
+
     visitCharacters() {
         cy.visit('https://dsternlicht.github.io/RESTool/#/characters?search='); // Se visita la pagina antes de cada test para que un test no dependa de otro 
     }
 
-    addCharacter() {
+    addItemButton() {
         return cy.get(selectors.ADD_ITEM_BUTTON).click()
     }
 
@@ -14,16 +18,41 @@ class characters {
         return cy.fillFormCharacter(card.image, card.name, card.real_name, card.current_location)
     }
 
-    alertAppears() {
-        return cy.get(selectors.SUCCESS_ALERT).should(($el) => {
-            expect($el).to.have.text('Great Success!')
-        })
+    getSelector(selector){
+        cy.get(selector)
     }
 
-    alertDisappears() {
-        return cy.get(selectors.SUCCESS_ALERT).should(($el) => {
-            expect($el).not.to.exist
-        })
+    typeName() {
+        return cy.get(selectors.CHARACTER_SEARCH_INPUT_TEXT).type(card.name)
     }
+
+    clickOnCharacterSubmitButton() {
+        return cy.get(selectors.CHARACTER_SUBMIT_BUTTON).click()
+    }
+
+    waitingAllCharacters() {
+        return cy.intercept('GET', '**/character?search*').as('getChar')
+    }
+
+    clearPreviousSearchAndWrite() {
+        return cy.get(selectors.CHARACTER_SEARCH_INPUT_TEXT).clear().type(card.name)
+    }
+
+    clickOnSearchSubmitButton() {
+        return  cy.get(selectors.CHARACTER_SUBMIT_BUTTON).click()
+    }
+
+    cardShouldBeVisible() {
+        return cy.get(selectors.CARD).should('be.visible')
+    }
+
+    deleteCard() {
+        return cy.get(selectors.DELETE_CARD).click()
+    }
+
+    waitGetChar(){
+        cy.wait('@getChar')
+    }
+
 }
 export default characters;
