@@ -3,13 +3,11 @@ import card from '../../fixtures/card.json'
 
 class characters {
 
-    wait(millisec)
-    {   cy.wait(millisec) }
+    wait(millisec) { cy.wait(millisec) }
 
     visitCharacters() {
-        cy.visit('https://dsternlicht.github.io/RESTool/#/characters?search='); // Se visita la pagina antes de cada test para que un test no dependa de otro 
+        cy.visit('https://dsternlicht.github.io/RESTool/#/characters?search=');
     }
-
     addItemButton() {
         return cy.get(selectors.ADD_ITEM_BUTTON).click()
     }
@@ -18,7 +16,7 @@ class characters {
         return cy.fillFormCharacter(card.image, card.name, card.real_name, card.current_location)
     }
 
-    getSelector(selector){
+    getSelector(selector) {
         cy.get(selector)
     }
 
@@ -39,20 +37,16 @@ class characters {
     }
 
     clickOnSearchSubmitButton() {
-        return  cy.get(selectors.CHARACTER_SUBMIT_BUTTON).click()
-    }
-
-    cardShouldBeVisible() {
-        return cy.get(selectors.CARD).should('be.visible')
+        return cy.get(selectors.CHARACTER_SUBMIT_BUTTON).click()
     }
 
     deleteCard() {
         return cy.get(selectors.DELETE_CARD).click()
     }
 
-    waitGetChar(){
+    waitGetChar() {
         cy.wait('@getChar')
     }
-
 }
+
 export default characters;

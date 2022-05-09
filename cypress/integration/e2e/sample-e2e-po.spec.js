@@ -14,11 +14,11 @@ describe('Example E2E Test', () => {
         character.addItemButton()
         character.fillCharacter()
 
-            .get(selectors.SUCCESS_ALERT).should(($el) => {
+            cy.get(selectors.SUCCESS_ALERT).should(($el) => {
                 expect($el).to.have.text('Great Success!')
             })
 
-            .get(selectors.SUCCESS_ALERT).should(($el) => {
+            cy.get(selectors.SUCCESS_ALERT).should(($el) => {
                 expect($el).not.to.exist
             })
     })
@@ -48,11 +48,13 @@ describe('Example E2E Test', () => {
         character.clearPreviousSearchAndWrite()
         character.clickOnSearchSubmitButton()
 
-        character.waitGetChar()
-        character.cardShouldBeVisible()
-        character.deleteCard()
-        cy.get(selectors.CARD_NOT_FOUND).should(($el) => {
-            expect($el).to.have.text('Nothing to see here. Result is empty.')
-        })
+        cy.get(selectors.CARD).should('be.visible')
+        // cy  
+        //     .wait('@getChar')
+        //     .get(selectors.CARD).should('be.visible')
+        //     .get(selectors.DELETE_CARD).click()
+        //     .get(selectors.CARD_NOT_FOUND).should(($el) => {
+        //         expect($el).to.have.text('Nothing to see here. Result is empty.')
+        //     })
     })
 })
